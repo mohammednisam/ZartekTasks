@@ -1,0 +1,75 @@
+install the packages as per requirement.txt
+
+run migrations to create tables
+(if it doesn't work well I have added database.sql for import table structure)
+
+
+
+Use of INSOMINA for api testing
+
+APIs:-
+
+1.Create User 
+ 	
+	API- localhost:8000/api-user/add-user/ 
+	Method - POST
+	Body:
+		{
+			"userName":"ADMIN2",
+			"firstName":"Test",
+			"lastName":"Admin",
+			"vchrGroup":"ADMIN",
+			"userPassword":"testpass"
+		}
+	Only Admin will Permited to create post
+
+2.Login
+
+	API- localhost:8000/api-user/login/
+	Method - POST
+	Body:
+		{
+			"userName":"ADMIN2",
+			"userPassword":"testpass"
+		}
+
+3.Add Post
+	
+	API- localhost:8000/api-post/add-post/
+	Method - POST
+	To add Image Using multipart/form Data
+	
+	postImage - image data
+	vchrCaption - Image caption
+	strDiscription - discrption abount post
+	fltTag1Weight - 1st Tag value (it is used for first tag like A,we can provide its weight like 1,2,3 etc)
+	fltTag2Weight - 2nd Tag value
+	fltTag3Weight - 3rd Tag value
+
+4.List created posts
+ 
+	API- localhost:8000/api-post/add-post/
+	Method - GET
+
+5.Review The Post
+
+	API- localhost:8000/api-post/add-post/{id}/
+	Method - PATCH
+	Body {
+
+		"blnReview":"True/False"
+	}
+
+6.Retrive the review details of particular post
+
+	API- localhost:8000/api-post/add-post/{id}/
+	Method - PUT
+
+
+Note -
+
+	1.Use X-CSRFToken in header of apis
+	2.If there any csrf token issues in add user and login plz clear cookies
+
+
+
